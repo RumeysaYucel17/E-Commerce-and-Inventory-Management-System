@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.yucelormanurunleri.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --info-color: #3498db;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --border-color: #333333;
+            --dark-color: #e0e0e0;
+            --light-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 2.5em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-toggle {
+            padding: 10px 20px;
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        button.danger {
+            background: var(--danger-color);
+        }
+
+        button.danger:hover {
+            background: #c0392b;
+        }
+
+        button.success {
+            background: var(--success-color);
+        }
+
+        button.success:hover {
+            background: #229954;
+        }
+
+        button.warning {
+            background: var(--warning-color);
+        }
+
+        button.warning:hover {
+            background: #e67e22;
+        }
+
+        button.info {
+            background: var(--info-color);
+        }
+
+        button.info:hover {
+            background: #2980b9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--bg-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: var(--light-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-card h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stock-low {
+            color: var(--danger-color);
+            font-weight: 600;
+        }
+
+        .stock-medium {
+            color: var(--warning-color);
+            font-weight: 600;
+        }
+
+        .stock-high {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-debt {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .badge-no-debt {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .badge-warning {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .badge-info {
+            background: var(--info-color);
+            color: white;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+            max-width: 400px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .notification.success {
+            border-left: 5px solid var(--success-color);
+        }
+
+        .notification.error {
+            border-left: 5px solid var(--danger-color);
+        }
+
+        .notification.warning {
+            border-left: 5px solid var(--warning-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-color);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            background: var(--danger-color);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        .search-box {
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chart-container {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .status-preparing {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .status-shipping {
+            background: var(--info-color);
+            color: white;
+        }
+
+        .status-delivered {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .customer-type {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .type-individual {
+            background: var(--info-color);
+            color: white;
+        }
+
+        .type-corporate {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .scrollable-table {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>     🌲🪵YÜCEL ORMAN ÜRÜNLERİ 🌲🪵       </h1>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Karanlık Mod</span>
+            </button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab" onclick="showTab('products')">📦 Ürün Yönetimi</button>
+            <button class="tab" onclick="showTab('stock')">📈 Stok Yönetimi</button>
+            <button class="tab" onclick="showTab('customers')">👥 Müşteri Yönetimi</button>
+            <button class="tab" onclick="showTab('orders')">🛒 Sipariş Yönetimi</button>
+            <button class="tab" onclick="showTab('sales')">💰 Satış/Alım</button>
+            <button class="tab" onclick="showTab('reports')">📑 Raporlar</button>
+        </div>
+
+        <!-- Dashboard Sekmesi -->
+        <div id="dashboard" class="tab-content active">
+            <h2 style="margin-bottom: 20px;">📊 Genel Bakış</h2>
+            <div class="grid-3">
+                <div class="stat-card">
+                    <h2 id="totalProducts">75</h2>
+                    <p>Toplam Ürün</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="totalCustomers">0</h2>
+                    <p>Toplam Müşteri</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="totalOrders">0</h2>
+                    <p>Toplam Sipariş</p>
+                </div>
+            </div>
+
+            <div class="info-card" style="margin-top: 30px;">
+                <h3>⚠️ Kritik Stok Uyarıları</h3>
+                <div id="criticalStockAlerts"></div>
+            </div>
+
+            <div class="info-card">
+                <h3>📈 Son İşlemler</h3>
+                <div id="recentTransactions"></div>
+            </div>
+        </div>
+
+        <!-- Ürün Yönetimi Sekmesi -->
+        <div id="products" class="tab-content">
+            <div class="grid-2">
+                <div>
+                    <h2>➕ Yeni Ürün Ekle / Düzenle</h2>
+                    <div class="form-group">
+                        <label>Ürün ID (Düzenleme için mevcut ID girin)</label>
+                        <input type="number" id="productId" placeholder="Otomatik atanacak">
+                    </div>
+                    <div class="form-group">
+                        <label>Ürün Adı *</label>
+                        <input type="text" id="productName" placeholder="Ürün adı girin">
+                    </div>
+                    <div class="form-group">
+                        <label>Fiyat (TL) *</label>
+                        <input type="number" id="productPrice" min="0" step="0.01" placeholder="Fiyat girin">
+                    </div>
+                    <div class="form-group">
+                        <label>Başlangıç Stoğu</label>
+                        <input type="number" id="productStock" min="0" value="0" placeholder="Stok miktarı">
+                    </div>
+                    <div class="form-group">
+                        <label>Kritik Stok Seviyesi</label>
+                        <input type="number" id="productCriticalStock" min="0" value="10" placeholder="Kritik stok seviyesi">
+                    </div>
+                    <div class="form-group">
+                        <label>Birim</label>
+                        <select id="productUnit">
+                            <option value="Adet">Adet</option>
+                            <option value="m³">m³</option>
+                            <option value="Ton">Ton</option>
+                            <option value="Metre">Metre</option>
+                            <option value="Kg">Kg</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button onclick="addOrUpdateProduct()" class="success">💾 Kaydet</button>
+                        <button onclick="clearProductForm()" class="warning">🔄 Temizle</button>
+                    </div>
+                </div>
+                <div>
+                    <h2>📋 Ürün Listesi</h2>
+                    <input type="text" id="productSearch" class="search-box" placeholder="🔍 Ürün ara..." onkeyup="searchProducts()">
+                    <div class="scrollable-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Ürün Adı</th>
+                                    <th>Fiyat</th>
+                                    <th>Stok</th>
+                                    <th>Birim</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h2>💰 Toplu Fiyat Güncelleme</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Güncelleme Türü</label>
+                        <select id="bulkPriceType">
+                            <option value="percent">Yüzde Artış/Azalış</option>
+                            <option value="fixed">Sabit Tutar Artış/Azalış</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Değer</label>
+                        <input type="number" id="bulkPriceValue" step="0.01" placeholder="Örn: 10 (% veya TL)">
+                    </div>
+                    <div class="form-group">
+                        <label>İşlem</label>
+                        <select id="bulkPriceOperation">
+                            <option value="increase">Artır</option>
+                            <option value="decrease">Azalt</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="bulkUpdatePrices()" class="warning">🔄 Tüm Fiyatları Güncelle</button>
+            </div>
+        </div>
+
+        <!-- Stok Yönetimi Sekmesi -->
+        <div id="stock" class="tab-content">
+            <div class="grid-2">
+                <div>
+                    <h2>📦 Stok Güncelle</h2>
+                    <div class="form-group">
+                        <label>Ürün Seç *</label>
+                        <select id="stockProductSelect">
+                            <option value="">Ürün seçin...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>İşlem Türü</label>
+                        <select id="stockOperationType">
+                            <option value="set">Manuel Stok Belirle</option>
+                            <option value="add">Stok Ekle</option>
+                            <option value="subtract">Stok Çıkar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Miktar *</label>
+                        <input type="number" id="stockQuantity" min="0" placeholder="Miktar girin">
+                    </div>
+                    <div class="form-group">
+                        <label>Not</label>
+                        <textarea id="stockNote" rows="3" placeholder="İşlem notu (opsiyonel)"></textarea>
+                    </div>
+                    <button onclick="updateStock()" class="success">✅ Stok Güncelle</button>
+                </div>
+                <div>
+                    <h2>📊 Stok Durumu</h2>
+                    <input type="text" id="stockSearch" class="search-box" placeholder="🔍 Stok ara..." onkeyup="searchStock()">
+                    <div class="scrollable-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Stok</th>
+                                    <th>Birim</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody id="stockTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Müşteri Yönetimi Sekmesi -->
+        <div id="customers" class="tab-content">
+            <div class="grid-2">
+                <div>
+                    <h2>➕ Yeni Müşteri Ekle</h2>
+                    <div class="form-group">
+                        <label>Müşteri Tipi *</label>
+                        <select id="customerType">
+                            <option value="individual">Bireysel</option>
+                            <option value="corporate">Kurumsal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Müşteri Adı *</label>
+                        <input type="text" id="customerName" placeholder="Müşteri adı girin">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon Numarası *</label>
+                        <input type="text" id="customerPhone" placeholder="Telefon numarası girin">
+                    </div>
+                    <div class="form-group">
+                        <label>E-posta</label>
+                        <input type="email" id="customerEmail" placeholder="E-posta adresi">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <textarea id="customerAddress" rows="3" placeholder="Adres bilgisi"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Başlangıç Borcu (TL)</label>
+                        <input type="number" id="customerDebt" value="0" min="0" step="0.01" placeholder="Borç miktarı">
+                    </div>
+                    <div class="form-group" id="specialPriceGroup" style="display: none;">
+                        <label>Özel Fiyat İndirimi (%)</label>
+                        <input type="number" id="customerDiscount" value="0" min="0" max="100" placeholder="İndirim yüzdesi">
+                    </div>
+                    <button onclick="addCustomer()" class="success">💾 Müşteri Ekle</button>
+                </div>
+                <div>
+                    <h2>👥 Müşteri Listesi</h2>
+                    <input type="text" id="customerSearch" class="search-box" placeholder="🔍 Müşteri ara..." onkeyup="searchCustomers()">
+                    <div class="scrollable-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tip</th>
+                                    <th>Ad</th>
+                                    <th>Telefon</th>
+                                    <th>Borç</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customersTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sipariş Yönetimi Sekmesi -->
+        <div id="orders" class="tab-content">
+            <div class="grid-2">
+                <div>
+                    <h2>🛒 Yeni Sipariş Oluştur</h2>
+                    <div class="form-group">
+                        <label>Müşteri Seç *</label>
+                        <select id="orderCustomer">
+                            <option value="">Müşteri seçin...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ürün Seç *</label>
+                        <select id="orderProduct">
+                            <option value="">Ürün seçin...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Miktar *</label>
+                        <input type="number" id="orderQuantity" min="1" placeholder="Miktar">
+                    </div>
+                    <div class="form-group">
+                        <label>Nakliye Firması</label>
+                        <input type="text" id="orderShipping" placeholder="Nakliye firması adı">
+                    </div>
+                    <div class="form-group">
+                        <label>Sipariş Durumu</label>
+                        <select id="orderStatus">
+                            <option value="preparing">Hazırlanıyor</option>
+                            <option value="shipping">Sevkiyatta</option>
+                            <option value="delivered">Teslim Edildi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Not</label>
+                        <textarea id="orderNote" rows="3" placeholder="Sipariş notu"></textarea>
+                    </div>
+                    <button onclick="createOrder()" class="success">🛒 Sipariş Oluştur</button>
+                </div>
+                <div>
+                    <h2>📋 Sipariş Listesi</h2>
+                    <input type="text" id="orderSearch" class="search-box" placeholder="🔍 Sipariş ara..." onkeyup="searchOrders()">
+                    <div class="scrollable-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sipariş No</th>
+                                    <th>Müşteri</th>
+                                    <th>Ürün</th>
+                                    <th>Miktar</th>
+                                    <th>Durum</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Satış/Alım Sekmesi -->
+        <div id="sales" class="tab-content">
+            <div class="info-card">
+                <h3>💰 Satış/Alım İşlemi</h3>
+                <p>Ürün satışı veya alımı yaparak stokları ve müşteri borçlarını güncelleyin.</p>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>İşlem Türü *</label>
+                    <select id="transactionType" onchange="toggleCustomerField()">
+                        <option value="sale">Satış</option>
+                        <option value="purchase">Alım</option>
+                    </select>
+                </div>
+                <div class="form-group" id="customerFieldGroup">
+                    <label>Müşteri Seç *</label>
+                    <select id="transactionCustomer">
+                        <option value="">Müşteri seçin...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Ürün Seç *</label>
+                    <select id="transactionProduct" onchange="updateTransactionPrice()">
+                        <option value="">Ürün seçin...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Miktar *</label>
+                    <input type="number" id="transactionQuantity" min="1" placeholder="Miktar" onchange="calculateTotal()">
+                </div>
+                <div class="form-group">
+                    <label>Birim Fiyat (TL)</label>
+                    <input type="number" id="transactionPrice" min="0" step="0.01" placeholder="Birim fiyat" onchange="calculateTotal()">
+                </div>
+                <div class="form-group">
+                    <label>Toplam Tutar (TL)</label>
+                    <input type="number" id="transactionTotal" min="0" step="0.01" placeholder="Toplam" readonly>
+                </div>
+            </div>
+            <button onclick="processTransaction()" class="success">✅ İşlemi Gerçekleştir</button>
+
+            <h2 style="margin-top: 40px;">📜 İşlem Geçmişi</h2>
+            <input type="text" id="transactionSearch" class="search-box" placeholder="🔍 İşlem ara..." onkeyup="searchTransactions()">
+            <div class="scrollable-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>İşlem</th>
+                            <th>Müşteri</th>
+                            <th>Ürün</th>
+                            <th>Miktar</th>
+                            <th>Birim Fiyat</th>
+                            <th>Toplam</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Raporlar Sekmesi -->
+        <div id="reports" class="tab-content">
+            <h2>📊 Raporlama ve Analiz</h2>
+            
+            <div class="grid-3" style="margin-top: 20px;">
+                <div class="stat-card">
+                    <h2 id="reportTotalSales">0 TL</h2>
+                    <p>Toplam Satış</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="reportTotalPurchases">0 TL</h2>
+                    <p>Toplam Alım</p>
+                </div>
+                <div class="stat-card">
+                    <h2 id="reportProfit">0 TL</h2>
+                    <p>Kâr/Zarar</p>
+                </div>
+            </div>
+
+            <div class="info-card" style="margin-top: 30px;">
+                <h3>🏆 En Çok Satılan Ürünler</h3>
+                <div id="topSellingProducts"></div>
+            </div>
+
+            <div class="grid-2" style="margin-top: 30px;">
+                <div class="info-card">
+                    <h3>📅 Günlük Satış Raporu</h3>
+                    <div id="dailySalesReport"></div>
+                </div>
+                <div class="info-card">
+                    <h3>📆 Aylık Satış Raporu</h3>
+                    <div id="monthlySalesReport"></div>
+                </div>
+            </div>
+
+            <div class="info-card" style="margin-top: 30px;">
+                <h3>📉 Stok Tüketim Raporu</h3>
+                <div id="stockConsumptionReport"></div>
+            </div>
+
+            <div class="action-buttons" style="margin-top: 30px;">
+                <button onclick="exportReport('excel')" class="success">📊 Excel'e Aktar</button>
+                <button onclick="exportReport('pdf')" class="danger">📄 PDF'e Aktar</button>
+                <button onclick="printReport()" class="info">🖨️ Yazdır</button>
+            </div>
+        </div>
+
+        <!-- Bize Ulaşın Bölümü -->
+        <div class="contact-section">
+            <h2>📞 Bize Ulaşın</h2>
+            <p style="font-size: 1.2em; margin-bottom: 20px;">Sorularınız ve siparişleriniz için bizimle iletişime geçin</p>
+            <div class="contact-info">
+                <div>
+                    <strong>👤 FUAT YÜCEL</strong>
+                </div>
+                <div>
+                    <strong>👤AHMET HAKAN YÜCEL</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Modal Başlık</h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div id="modalBody">
+                Modal içeriği
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tema değiştirme
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+            document.getElementById('themeText').textContent = isDark ? 'Aydınlık Mod' : 'Karanlık Mod';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Sayfa yüklendiğinde tema ayarını kontrol et
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeText').textContent = 'Aydınlık Mod';
+            }
+        });
+
+        // Ürün listesi ve fiyatları
+        let products = [
+            { id: 1, name: "30 luk seren", price: 80, unit: "Adet", criticalStock: 10 },
+            { id: 2, name: "35 lik seren", price: 90, unit: "Adet", criticalStock: 10 },
+            { id: 3, name: "Lambalı kapı sereni", price: 110, unit: "Adet", criticalStock: 10 },
+            { id: 4, name: "32lik kağıt", price: 40, unit: "Adet", criticalStock: 10 },
+            { id: 5, name: "37lik kağıt", price: 50, unit: "Adet", criticalStock: 10 },
+            { id: 6, name: "Cam çıtası (metresi)", price: 35, unit: "Metre", criticalStock: 10 },
+            { id: 7, name: "54*160 hazır çıta", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 8, name: "60*160 hazır çıta", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 9, name: "60*171 hazır çıta", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 10, name: "50*150 hazır çıta", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 11, name: "58*105 hazır çıta", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 12, name: "50*150 hazır çıta (boş)", price: 600, unit: "Adet", criticalStock: 10 },
+            { id: 13, name: "54*160 hazır çıta (yatay)", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 14, name: "Hazır çıta Hitit", price: 750, unit: "Adet", criticalStock: 10 },
+            { id: 15, name: "23*160 yavru hazır çıta", price: 500, unit: "Adet", criticalStock: 10 },
+            { id: 16, name: "17*160 yavru hazır çıta", price: 500, unit: "Adet", criticalStock: 10 },
+            { id: 17, name: "6mm 93*210 mdf tk", price: 685, unit: "Adet", criticalStock: 10 },
+            { id: 18, name: "12mm 93*210 mdf", price: 600, unit: "Adet", criticalStock: 10 },
+            { id: 19, name: "18mm 93*210 mdf", price: 750, unit: "Adet", criticalStock: 10 },
+            { id: 20, name: "10 luk hazır kasa tk", price: 650, unit: "Adet", criticalStock: 10 },
+            { id: 21, name: "11 lik hazır kasa tk", price: 725, unit: "Adet", criticalStock: 10 },
+            { id: 22, name: "12 lik hazır kasa tk", price: 800, unit: "Adet", criticalStock: 10 },
+            { id: 23, name: "13 lük hazır kasa tk", price: 875, unit: "Adet", criticalStock: 10 },
+            { id: 24, name: "15 lik hazır kasa tk", price: 1200, unit: "Adet", criticalStock: 10 },
+            { id: 25, name: "18 lik hazır kasa tk", price: 1350, unit: "Adet", criticalStock: 10 },
+            { id: 26, name: "22 lik hazır kasa tk", price: 1600, unit: "Adet", criticalStock: 10 },
+            { id: 27, name: "8*7 pervaz", price: 70, unit: "Adet", criticalStock: 10 },
+            { id: 28, name: "8*8 pervaz", price: 80, unit: "Adet", criticalStock: 10 },
+            { id: 29, name: "10*9 pervaz", price: 105, unit: "Adet", criticalStock: 10 },
+            { id: 30, name: "10*10 pervaz", price: 120, unit: "Adet", criticalStock: 10 },
+            { id: 31, name: "12*8 pervaz", price: 110, unit: "Adet", criticalStock: 10 },
+            { id: 32, name: "12*9 pervaz", price: 115, unit: "Adet", criticalStock: 10 },
+            { id: 33, name: "12*10 pervaz", price: 125, unit: "Adet", criticalStock: 10 },
+            { id: 34, name: "12*9 g. Pervaz", price: 130, unit: "Adet", criticalStock: 10 },
+            { id: 35, name: "18*9 pervaz", price: 160, unit: "Adet", criticalStock: 10 },
+            { id: 36, name: "Deko. Pervaz", price: 165, unit: "Adet", criticalStock: 10 },
+            { id: 37, name: "Oval pervaz", price: 145, unit: "Adet", criticalStock: 10 },
+            { id: 38, name: "Seperetör", price: 1000, unit: "Adet", criticalStock: 10 },
+            { id: 39, name: "Brova kol yuvarlak saten", price: 100, unit: "Adet", criticalStock: 10 },
+            { id: 40, name: "Brova kol aynalı saten", price: 65, unit: "Adet", criticalStock: 10 },
+            { id: 41, name: "Toros kol yuvarlak saten", price: 165, unit: "Adet", criticalStock: 10 },
+            { id: 42, name: "Lama kol inox kare saten", price: 125, unit: "Adet", criticalStock: 10 },
+            { id: 43, name: "Lama kol siyah kare", price: 85, unit: "Adet", criticalStock: 10 },
+            { id: 44, name: "Prizma kol siyah kare", price: 85, unit: "Adet", criticalStock: 10 },
+            { id: 45, name: "2019 kol siyah kare", price: 85, unit: "Adet", criticalStock: 10 },
+            { id: 46, name: "Siyah kilit oda", price: 70, unit: "Adet", criticalStock: 10 },
+            { id: 47, name: "Siyah kilit wc", price: 70, unit: "Adet", criticalStock: 10 },
+            { id: 48, name: "Saten kilit oda", price: 70, unit: "Adet", criticalStock: 10 },
+            { id: 49, name: "Saten kilit wc", price: 70, unit: "Adet", criticalStock: 10 },
+            { id: 50, name: "Siyah kilit oda Metlox", price: 85, unit: "Adet", criticalStock: 10 },
+            { id: 51, name: "Siyah kilit wc Metlox", price: 85, unit: "Adet", criticalStock: 10 },
+            { id: 52, name: "Siyah menteşe", price: 15, unit: "Adet", criticalStock: 10 },
+            { id: 53, name: "Siyah ortası saten menteşe", price: 18, unit: "Adet", criticalStock: 10 },
+            { id: 54, name: "Saten menteşe", price: 15, unit: "Adet", criticalStock: 10 },
+            { id: 55, name: "Çelik kasa menteşe si dar", price: 55, unit: "Adet", criticalStock: 10 },
+            { id: 56, name: "Çelik kasa menteşe si geniş", price: 55, unit: "Adet", criticalStock: 10 },
+            { id: 57, name: "Dayson beyaz", price: 180, unit: "Adet", criticalStock: 10 },
+            { id: 58, name: "Mastik beyaz", price: 30, unit: "Adet", criticalStock: 10 },
+            { id: 59, name: "Mastik ant.", price: 35, unit: "Adet", criticalStock: 10 },
+            { id: 60, name: "Silikon beyaz", price: 50, unit: "Adet", criticalStock: 10 },
+            { id: 61, name: "Silikon şeffaf", price: 50, unit: "Adet", criticalStock: 10 },
+            { id: 62, name: "Köpük", price: 130, unit: "Adet", criticalStock: 10 },
+            { id: 63, name: "Tabancalı köpük", price: 130, unit: "Adet", criticalStock: 10 },
+            { id: 64, name: "Apel hızlı yapıştırıcı", price: 100, unit: "Adet", criticalStock: 10 },
+            { id: 65, name: "Apel 1kg tutkal", price: 100, unit: "Adet", criticalStock: 10 },
+            { id: 66, name: "3.5*50 Vida", price: 165, unit: "Kg", criticalStock: 10 },
+            { id: 67, name: "3.5*18 Vida", price: 175, unit: "Kg", criticalStock: 10 },
+            { id: 68, name: "3.5*30 (saten) Vida", price: 250, unit: "Kg", criticalStock: 10 },
+            { id: 69, name: "3.5*30 (siyah) Vida", price: 450, unit: "Kg", criticalStock: 10 },
+            { id: 70, name: "8/14 zımba teli", price: 50, unit: "Adet", criticalStock: 10 },
+            { id: 71, name: "2 kg streç", price: 170, unit: "Adet", criticalStock: 10 },
+            { id: 72, name: "10 luk düz fitil beyaz", price: 5, unit: "Metre", criticalStock: 10 },
+            { id: 73, name: "10 luk düz fitil ant.", price: 6, unit: "Metre", criticalStock: 10 },
+            { id: 74, name: "12 lik sakalı fitil beyaz", price: 7, unit: "Metre", criticalStock: 10 },
+            { id: 75, name: "12 lik düz fitil beyaz", price: 7, unit: "Metre", criticalStock: 10 }
+        ];
+
+        // LocalStorage'dan ürünleri yükle
+        function loadProductsFromStorage() {
+            const savedProducts = localStorage.getItem('products');
+            if (savedProducts) {
+                products = JSON.parse(savedProducts);
+            }
+        }
+
+        // Ürünleri kaydet
+        function saveProductsToStorage() {
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+
+        // Veri yönetimi - localStorage
+        function getStocks() {
+            const stocks = localStorage.getItem('stocks');
+            return stocks ? JSON.parse(stocks) : {};
+        }
+
+        function saveStocks(stocks) {
+            localStorage.setItem('stocks', JSON.stringify(stocks));
+            checkCriticalStock();
+        }
+
+        function getCustomers() {
+            const customers = localStorage.getItem('customers');
+            return customers ? JSON.parse(customers) : [];
+        }
+
+        function saveCustomers(customers) {
+            localStorage.setItem('customers', JSON.stringify(customers));
+        }
+
+        function getTransactions() {
+            const transactions = localStorage.getItem('transactions');
+            return transactions ? JSON.parse(transactions) : [];
+        }
+
+        function saveTransactions(transactions) {
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+        }
+
+        function getOrders() {
+            const orders = localStorage.getItem('orders');
+            return orders ? JSON.parse(orders) : [];
+        }
+
+        function saveOrders(orders) {
+            localStorage.setItem('orders', JSON.stringify(orders));
+        }
+
+        // Bildirim göster
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <strong>${type === 'success' ? '✅ Başarılı' : type === 'error' ? '❌ Hata' : '⚠️ Uyarı'}</strong>
+                <p>${message}</p>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Modal işlemleri
+        function openModal(title, content) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').innerHTML = content;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Tab yönetimi
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Tab'a göre verileri yükle
+            if (tabName === 'dashboard') {
+                loadDashboard();
+            } else if (tabName === 'products') {
+                loadProductManagement();
+            } else if (tabName === 'stock') {
+                loadStockManagement();
+            } else if (tabName === 'customers') {
+                loadCustomers();
+            } else if (tabName === 'orders') {
+                loadOrders();
+            } else if (tabName === 'sales') {
+                loadSales();
+            } else if (tabName === 'reports') {
+                loadReports();
+            }
+        }
+
+        // Dashboard yükle
+        function loadDashboard() {
+            const customers = getCustomers();
+            const orders = getOrders();
+            
+            document.getElementById('totalProducts').textContent = products.length;
+            document.getElementById('totalCustomers').textContent = customers.length;
+            document.getElementById('totalOrders').textContent = orders.length;
+
+            // Kritik stok uyarıları
+            const stocks = getStocks();
+            const criticalAlerts = document.getElementById('criticalStockAlerts');
+            let criticalProducts = [];
+            
+            products.forEach(product => {
+                const stock = stocks[product.id] || 0;
+                const criticalLevel = product.criticalStock || 10;
+                if (stock <= criticalLevel) {
+                    criticalProducts.push({ ...product, stock });
+                }
+            });
+
+            if (criticalProducts.length > 0) {
+                criticalAlerts.innerHTML = '<table style="width: 100%; margin-top: 10px;"><thead><tr><th>Ürün</th><th>Mevcut Stok</th><th>Kritik Seviye</th><th>Durum</th></tr></thead><tbody>' +
+                    criticalProducts.map(p => `
+                        <tr>
+                            <td>${p.name}</td>
+                            <td class="stock-low">${p.stock} ${p.unit}</td>
+                            <td>${p.criticalStock} ${p.unit}</td>
+                            <td><span class="badge badge-debt">⚠️ Kritik</span></td>
+                        </tr>
+                    `).join('') + '</tbody></table>';
+            } else {
+                criticalAlerts.innerHTML = '<p style="color: var(--success-color); font-weight: 600;">✅ Tüm ürünler yeterli stok seviyesinde</p>';
+            }
+
+            // Son işlemler
+            const transactions = getTransactions();
+            const recentTrans = document.getElementById('recentTransactions');
+            if (transactions.length > 0) {
+                const last5 = transactions.slice(0, 5);
+                recentTrans.innerHTML = '<table style="width: 100%; margin-top: 10px;"><thead><tr><th>Tarih</th><th>İşlem</th><th>Ürün</th><th>Miktar</th><th>Toplam</th></tr></thead><tbody>' +
+                    last5.map(t => `
+                        <tr>
+                            <td>${t.date}</td>
+                            <td><span class="badge ${t.type === 'Satış' ? 'badge-no-debt' : 'badge-info'}">${t.type}</span></td>
+                            <td>${t.productName}</td>
+                            <td>${t.quantity}</td>
+                            <td><strong>${t.total.toFixed(2)} TL</strong></td>
+                        </tr>
+                    `).join('') + '</tbody></table>';
+            } else {
+                recentTrans.innerHTML = '<p>Henüz işlem yapılmamış</p>';
+            }
+        }
+
+        // Kritik stok kontrolü
+        function checkCriticalStock() {
+            const stocks = getStocks();
+            let criticalProducts = [];
+            
+            products.forEach(product => {
+                const stock = stocks[product.id] || 0;
+                const criticalLevel = product.criticalStock || 10;
+                if (stock <= criticalLevel && stock > 0) {
+                    criticalProducts.push({ ...product, stock });
+                }
+            });
+
+            if (criticalProducts.length > 0) {
+                const message = `⚠️ ${criticalProducts.length} ürünün stoğu kritik seviyede!\n\n` +
+                    criticalProducts.map(p => `• ${p.name}: ${p.stock} ${p.unit}`).join('\n');
+                
+                // Bildirim göster
+                setTimeout(() => {
+                    if (confirm(message + '\n\nSipariş vermek ister misiniz?')) {
+                        showTab('orders');
+                    }
+                }, 1000);
+            }
+        }
+
+        // Ürün yönetimi
+        function loadProductManagement() {
+            updateProductsTable();
+        }
+
+        function updateProductsTable() {
+            const tbody = document.getElementById('productsTableBody');
+            const stocks = getStocks();
+            tbody.innerHTML = '';
+
+            products.forEach(product => {
+                const stock = stocks[product.id] || 0;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.price.toFixed(2)} TL</td>
+                    <td>${stock} ${product.unit}</td>
+                    <td>${product.unit}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button onclick="editProduct(${product.id})" class="info btn-sm">✏️ Düzenle</button>
+                            <button onclick="deleteProduct(${product.id})" class="danger btn-sm">🗑️ Sil</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function addOrUpdateProduct() {
+            const id = parseInt(document.getElementById('productId').value) || null;
+            const name = document.getElementById('productName').value.trim();
+            const price = parseFloat(document.getElementById('productPrice').value);
+            const stock = parseInt(document.getElementById('productStock').value) || 0;
+            const criticalStock = parseInt(document.getElementById('productCriticalStock').value) || 10;
+            const unit = document.getElementById('productUnit').value;
+
+            if (!name || !price || price < 0) {
+                showNotification('Lütfen geçerli ürün bilgileri girin!', 'error');
+                return;
+            }
+
+            if (id) {
+                // Güncelleme
+                const productIndex = products.findIndex(p => p.id === id);
+                if (productIndex !== -1) {
+                    products[productIndex] = { id, name, price, unit, criticalStock };
+                    
+                    // Stok güncelle
+                    const stocks = getStocks();
+                    stocks[id] = stock;
+                    saveStocks(stocks);
+                    
+                    showNotification('Ürün başarıyla güncellendi!');
+                } else {
+                    showNotification('Ürün bulunamadı!', 'error');
+                    return;
+                }
+            } else {
+                // Yeni ekleme
+                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+                products.push({ id: newId, name, price, unit, criticalStock });
+                
+                // Stok ekle
+                const stocks = getStocks();
+                stocks[newId] = stock;
+                saveStocks(stocks);
+                
+                showNotification('Ürün başarıyla eklendi!');
+            }
+
+            saveProductsToStorage();
+            updateProductsTable();
+            clearProductForm();
+        }
+
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            const stocks = getStocks();
+            const stock = stocks[id] || 0;
+
+            document.getElementById('productId').value = product.id;
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productStock').value = stock;
+            document.getElementById('productCriticalStock').value = product.criticalStock || 10;
+            document.getElementById('productUnit').value = product.unit;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function deleteProduct(id) {
+            if (!confirm('Bu ürünü silmek istediğinize emin misiniz?')) return;
+
+            products = products.filter(p => p.id !== id);
+            
+            // Stoktan da sil
+            const stocks = getStocks();
+            delete stocks[id];
+            saveStocks(stocks);
+            
+            saveProductsToStorage();
+            updateProductsTable();
+            showNotification('Ürün silindi!', 'warning');
+        }
+
+        function clearProductForm() {
+            document.getElementById('productId').value = '';
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productStock').value = '0';
+            document.getElementById('productCriticalStock').value = '10';
+            document.getElementById('productUnit').value = 'Adet';
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('productSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#productsTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        // Toplu fiyat güncelleme
+        function bulkUpdatePrices() {
+            const type = document.getElementById('bulkPriceType').value;
+            const value = parseFloat(document.getElementById('bulkPriceValue').value);
+            const operation = document.getElementById('bulkPriceOperation').value;
+
+            if (!value || value < 0) {
+                showNotification('Lütfen geçerli bir değer girin!', 'error');
+                return;
+            }
+
+            if (!confirm(`Tüm ürün fiyatlarını ${operation === 'increase' ? 'artırmak' : 'azaltmak'} istediğinize emin misiniz?`)) {
+                return;
+            }
+
+            products.forEach(product => {
+                if (type === 'percent') {
+                    const change = product.price * (value / 100);
+                    product.price = operation === 'increase' 
+                        ? product.price + change 
+                        : Math.max(0, product.price - change);
+                } else {
+                    product.price = operation === 'increase' 
+                        ? product.price + value 
+                        : Math.max(0, product.price - value);
+                }
+                product.price = Math.round(product.price * 100) / 100;
+            });
+
+            saveProductsToStorage();
+            updateProductsTable();
+            showNotification('Tüm fiyatlar güncellendi!');
+        }
+
+        // Stok yönetimi
+        function loadStockManagement() {
+            const select = document.getElementById('stockProductSelect');
+            select.innerHTML = '<option value="">Ürün seçin...</option>';
+            
+            products.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.id;
+                option.textContent = `${product.name} - ${product.price} TL`;
+                select.appendChild(option);
+            });
+
+            updateStockTable();
+        }
+
+        function updateStockTable() {
+            const tbody = document.getElementById('stockTableBody');
+            const stocks = getStocks();
+            tbody.innerHTML = '';
+
+            products.forEach(product => {
+                const stock = stocks[product.id] || 0;
+                const criticalLevel = product.criticalStock || 10;
+                const stockClass = stock === 0 ? 'stock-low' : (stock <= criticalLevel ? 'stock-medium' : 'stock-high');
+                const stockText = stock === 0 ? 'Stok Yok' : (stock <= criticalLevel ? 'Kritik' : 'Yeterli');
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td class="${stockClass}">${stock}</td>
+                    <td>${product.unit}</td>
+                    <td><span class="badge ${stock === 0 ? 'badge-debt' : (stock <= criticalLevel ? 'badge-warning' : 'badge-no-debt')}">${stockText}</span></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateStock() {
+            const productId = parseInt(document.getElementById('stockProductSelect').value);
+            const operationType = document.getElementById('stockOperationType').value;
+            const quantity = parseInt(document.getElementById('stockQuantity').value);
+
+            if (!productId || !quantity || quantity < 0) {
+                showNotification('Lütfen geçerli bir ürün ve miktar girin!', 'error');
+                return;
+            }
+
+            const stocks = getStocks();
+            const currentStock = stocks[productId] || 0;
+
+            if (operationType === 'set') {
+                stocks[productId] = quantity;
+            } else if (operationType === 'add') {
+                stocks[productId] = currentStock + quantity;
+            } else if (operationType === 'subtract') {
+                stocks[productId] = Math.max(0, currentStock - quantity);
+            }
+
+            saveStocks(stocks);
+            updateStockTable();
+            
+            document.getElementById('stockProductSelect').value = '';
+            document.getElementById('stockQuantity').value = '';
+            document.getElementById('stockNote').value = '';
+            showNotification('Stok güncellendi!');
+        }
+
+        function searchStock() {
+            const searchTerm = document.getElementById('stockSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#stockTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        // Müşteri yönetimi
+        document.getElementById('customerType').addEventListener('change', function() {
+            const specialPriceGroup = document.getElementById('specialPriceGroup');
+            specialPriceGroup.style.display = this.value === 'corporate' ? 'block' : 'none';
+        });
+
+        function loadCustomers() {
+            updateCustomersTable();
+            updateCustomerSelects();
+        }
+
+        function updateCustomersTable() {
+            const tbody = document.getElementById('customersTableBody');
+            const customers = getCustomers();
+            tbody.innerHTML = '';
+
+            if (customers.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Henüz müşteri eklenmemiş</td></tr>';
+                return;
+            }
+
+            customers.forEach(customer => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="customer-type ${customer.type === 'individual' ? 'type-individual' : 'type-corporate'}">${customer.type === 'individual' ? '👤 Bireysel' : '🏢 Kurumsal'}</span></td>
+                    <td>${customer.name}</td>
+                    <td>${customer.phone}</td>
+                    <td class="${customer.debt > 0 ? 'stock-low' : 'stock-high'}">${customer.debt.toFixed(2)} TL</td>
+                    <td>
+                        <div class="btn-group">
+                            <button onclick="viewCustomerDetails(${customer.id})" class="info btn-sm">👁️ Detay</button>
+                            <button onclick="updateCustomerDebt(${customer.id})" class="warning btn-sm">💰 Borç</button>
+                            <button onclick="deleteCustomer(${customer.id})" class="danger btn-sm">🗑️ Sil</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function addCustomer() {
+            const type = document.getElementById('customerType').value;
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            const debt = parseFloat(document.getElementById('customerDebt').value) || 0;
+            const discount = type === 'corporate' ? parseFloat(document.getElementById('customerDiscount').value) || 0 : 0;
+
+            if (!name || !phone) {
+                showNotification('Lütfen müşteri adı ve telefon numarası girin!', 'error');
+                return;
+            }
+
+            const customers = getCustomers();
+            const newId = customers.length > 0 ? Math.max(...customers.map(c => c.id)) + 1 : 1;
+            
+            customers.push({
+                id: newId,
+                type: type,
+                name: name,
+                phone: phone,
+                email: email,
+                address: address,
+                debt: debt,
+                discount: discount,
+                createdAt: new Date().toLocaleString('tr-TR')
+            });
+
+            saveCustomers(customers);
+            loadCustomers();
+            
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('customerEmail').value = '';
+            document.getElementById('customerAddress').value = '';
+            document.getElementById('customerDebt').value = '0';
+            document.getElementById('customerDiscount').value = '0';
+            showNotification('Müşteri eklendi!');
+        }
+
+        function viewCustomerDetails(id) {
+            const customers = getCustomers();
+            const customer = customers.find(c => c.id === id);
+            if (!customer) return;
+
+            const transactions = getTransactions().filter(t => t.customerId === id);
+            const totalPurchases = transactions.reduce((sum, t) => sum + (t.type === 'Satış' ? t.total : 0), 0);
+
+            const content = `
+                <div style="line-height: 1.8;">
+                    <p><strong>Tip:</strong> ${customer.type === 'individual' ? '👤 Bireysel' : '🏢 Kurumsal'}</p>
+                    <p><strong>Ad:</strong> ${customer.name}</p>
+                    <p><strong>Telefon:</strong> ${customer.phone}</p>
+                    <p><strong>E-posta:</strong> ${customer.email || '-'}</p>
+                    <p><strong>Adres:</strong> ${customer.address || '-'}</p>
+                    <p><strong>Borç:</strong> <span style="color: ${customer.debt > 0 ? 'var(--danger-color)' : 'var(--success-color)'}; font-weight: 600;">${customer.debt.toFixed(2)} TL</span></p>
+                    ${customer.discount > 0 ? `<p><strong>İndirim:</strong> %${customer.discount}</p>` : ''}
+                    <p><strong>Toplam Alışveriş:</strong> ${totalPurchases.toFixed(2)} TL</p>
+                    <p><strong>İşlem Sayısı:</strong> ${transactions.length}</p>
+                    <p><strong>Kayıt Tarihi:</strong> ${customer.createdAt}</p>
+                </div>
+            `;
+
+            openModal('👤 Müşteri Detayları', content);
+        }
+
+        function deleteCustomer(id) {
+            if (!confirm('Bu müşteriyi silmek istediğinize emin misiniz?')) return;
+
+            const customers = getCustomers();
+            const filtered = customers.filter(c => c.id !== id);
+            saveCustomers(filtered);
+            loadCustomers();
+            showNotification('Müşteri silindi!', 'warning');
+        }
+
+        function updateCustomerDebt(id) {
+            const customers = getCustomers();
+            const customer = customers.find(c => c.id === id);
+            if (!customer) return;
+
+            const action = prompt(`Mevcut Borç: ${customer.debt.toFixed(2)} TL\n\n1: Borç Ekle\n2: Ödeme Al\n3: Manuel Ayarla\n\nSeçiminiz (1-3):`);
+            
+            if (!action) return;
+
+            if (action === '1') {
+                const amount = parseFloat(prompt('Eklenecek borç miktarı:'));
+                if (amount && amount > 0) {
+                    customer.debt += amount;
+                    saveCustomers(customers);
+                    loadCustomers();
+                    showNotification(`${amount.toFixed(2)} TL borç eklendi!`);
+                }
+            } else if (action === '2') {
+                const amount = parseFloat(prompt('Ödeme miktarı:'));
+                if (amount && amount > 0) {
+                    customer.debt = Math.max(0, customer.debt - amount);
+                    saveCustomers(customers);
+                    loadCustomers();
+                    showNotification(`${amount.toFixed(2)} TL ödeme alındı!`);
+                }
+            } else if (action === '3') {
+                const newDebt = parseFloat(prompt('Yeni borç miktarı:', customer.debt));
+                if (newDebt !== null && !isNaN(newDebt) && newDebt >= 0) {
+                    customer.debt = newDebt;
+                    saveCustomers(customers);
+                    loadCustomers();
+                    showNotification('Borç güncellendi!');
+                }
+            }
+        }
+
+        function searchCustomers() {
+            const searchTerm = document.getElementById('customerSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#customersTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        function updateCustomerSelects() {
+            const selects = ['transactionCustomer', 'orderCustomer'];
+            const customers = getCustomers();
+            
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Müşteri seçin...</option>';
+                
+                customers.forEach(customer => {
+                    const option = document.createElement('option');
+                    option.value = customer.id;
+                    option.textContent = `${customer.name} - ${customer.phone}`;
+                    select.appendChild(option);
+                });
+            });
+        }
+
+        // Sipariş yönetimi
+        function loadOrders() {
+            updateCustomerSelects();
+            updateProductSelects();
+            updateOrdersTable();
+        }
+
+        function updateProductSelects() {
+            const selects = ['transactionProduct', 'orderProduct'];
+            
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                select.innerHTML = '<option value="">Ürün seçin...</option>';
+                
+                products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.id;
+                    option.textContent = `${product.name} - ${product.price} TL`;
+                    select.appendChild(option);
+                });
+            });
+        }
+
+        function createOrder() {
+            const customerId = parseInt(document.getElementById('orderCustomer').value);
+            const productId = parseInt(document.getElementById('orderProduct').value);
+            const quantity = parseInt(document.getElementById('orderQuantity').value);
+            const shipping = document.getElementById('orderShipping').value.trim();
+            const status = document.getElementById('orderStatus').value;
+            const note = document.getElementById('orderNote').value.trim();
+
+            if (!customerId || !productId || !quantity || quantity < 1) {
+                showNotification('Lütfen tüm gerekli alanları doldurun!', 'error');
+                return;
+            }
+
+            const customers = getCustomers();
+            const customer = customers.find(c => c.id === customerId);
+            const product = products.find(p => p.id === productId);
+
+            if (!customer || !product) {
+                showNotification('Müşteri veya ürün bulunamadı!', 'error');
+                return;
+            }
+
+            // Stok kontrolü
+            const stocks = getStocks();
+            const currentStock = stocks[productId] || 0;
+            if (currentStock < quantity) {
+                showNotification(`Yetersiz stok! Mevcut: ${currentStock} ${product.unit}`, 'error');
+                return;
+            }
+
+            const orders = getOrders();
+            const newId = orders.length > 0 ? Math.max(...orders.map(o => o.id)) + 1 : 1;
+
+            const price = customer.discount > 0 ? product.price * (1 - customer.discount / 100) : product.price;
+            const total = price * quantity;
+
+            orders.push({
+                id: newId,
+                customerId: customerId,
+                customerName: customer.name,
+                productId: productId,
+                productName: product.name,
+                quantity: quantity,
+                unitPrice: price,
+                total: total,
+                shipping: shipping,
+                status: status,
+                note: note,
+                createdAt: new Date().toLocaleString('tr-TR')
+            });
+
+            saveOrders(orders);
+            updateOrdersTable();
+
+            document.getElementById('orderQuantity').value = '';
+            document.getElementById('orderShipping').value = '';
+            document.getElementById('orderNote').value = '';
+            showNotification('Sipariş oluşturuldu!');
+        }
+
+        function updateOrdersTable() {
+            const tbody = document.getElementById('ordersTableBody');
+            const orders = getOrders();
+            tbody.innerHTML = '';
+
+            if (orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">Henüz sipariş oluşturulmamış</td></tr>';
+                return;
+            }
+
+            orders.forEach(order => {
+                const statusClass = order.status === 'preparing' ? 'status-preparing' : 
+                                  order.status === 'shipping' ? 'status-shipping' : 'status-delivered';
+                const statusText = order.status === 'preparing' ? '📦 Hazırlanıyor' : 
+                                 order.status === 'shipping' ? '🚚 Sevkiyatta' : '✅ Teslim Edildi';
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>#${order.id}</td>
+                    <td>${order.customerName}</td>
+                    <td>${order.productName}</td>
+                    <td>${order.quantity}</td>
+                    <td><span class="order-status ${statusClass}">${statusText}</span></td>
+                    <td>
+                        <div class="btn-group">
+                            <button onclick="viewOrderDetails(${order.id})" class="info btn-sm">👁️ Detay</button>
+                            <button onclick="updateOrderStatus(${order.id})" class="warning btn-sm">🔄 Durum</button>
+                            <button onclick="generateInvoice(${order.id})" class="success btn-sm">📄 Fatura</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function viewOrderDetails(id) {
+            const orders = getOrders();
+            const order = orders.find(o => o.id === id);
+            if (!order) return;
+
+            const content = `
+                <div style="line-height: 1.8;">
+                    <p><strong>Sipariş No:</strong> #${order.id}</p>
+                    <p><strong>Müşteri:</strong> ${order.customerName}</p>
+                    <p><strong>Ürün:</strong> ${order.productName}</p>
+                    <p><strong>Miktar:</strong> ${order.quantity}</p>
+                    <p><strong>Birim Fiyat:</strong> ${order.unitPrice.toFixed(2)} TL</p>
+                    <p><strong>Toplam:</strong> <span style="font-size: 1.3em; color: var(--success-color); font-weight: 600;">${order.total.toFixed(2)} TL</span></p>
+                    <p><strong>Nakliye:</strong> ${order.shipping || '-'}</p>
+                    <p><strong>Durum:</strong> ${order.status === 'preparing' ? '📦 Hazırlanıyor' : order.status === 'shipping' ? '🚚 Sevkiyatta' : '✅ Teslim Edildi'}</p>
+                    <p><strong>Not:</strong> ${order.note || '-'}</p>
+                    <p><strong>Oluşturulma:</strong> ${order.createdAt}</p>
+                </div>
+            `;
+
+            openModal('🛒 Sipariş Detayları', content);
+        }
+
+        function updateOrderStatus(id) {
+            const orders = getOrders();
+            const order = orders.find(o => o.id === id);
+            if (!order) return;
+
+            const newStatus = prompt(`Mevcut Durum: ${order.status}\n\n1: Hazırlanıyor\n2: Sevkiyatta\n3: Teslim Edildi\n\nYeni durum (1-3):`);
+            
+            if (newStatus === '1') order.status = 'preparing';
+            else if (newStatus === '2') order.status = 'shipping';
+            else if (newStatus === '3') order.status = 'delivered';
+            else return;
+
+            saveOrders(orders);
+            updateOrdersTable();
+            showNotification('Sipariş durumu güncellendi!');
+        }
+
+        function generateInvoice(id) {
+            const orders = getOrders();
+            const order = orders.find(o => o.id === id);
+            if (!order) return;
+
+            const invoice = `
+                ═══════════════════════════════════════
+                        YÜCEL ORMAN ÜRÜNLERİ
+                           FATURA
+                ═══════════════════════════════════════
+                
+                Fatura No: INV-${order.id}
+                Tarih: ${order.createdAt}
+                
+                ───────────────────────────────────────
+                MÜŞTERİ BİLGİLERİ
+                ───────────────────────────────────────
+                Müşteri: ${order.customerName}
+                
+                ───────────────────────────────────────
+                ÜRÜN BİLGİLERİ
+                ───────────────────────────────────────
+                Ürün: ${order.productName}
+                Miktar: ${order.quantity}
+                Birim Fiyat: ${order.unitPrice.toFixed(2)} TL
+                
+                ───────────────────────────────────────
+                TOPLAM: ${order.total.toFixed(2)} TL
+                ───────────────────────────────────────
+                
+                Nakliye: ${order.shipping || '-'}
+                
+                ═══════════════════════════════════════
+                İletişim: FUAT YÜCEL - 0506 471 56 75
+                ═══════════════════════════════════════
+            `;
+
+            openModal('📄 Fatura', `<pre style="font-family: monospace; line-height: 1.5;">${invoice}</pre>`);
+        }
+
+        function searchOrders() {
+            const searchTerm = document.getElementById('orderSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#ordersTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        // Satış/Alım işlemleri
+        function loadSales() {
+            updateCustomerSelects();
+            updateProductSelects();
+            loadTransactions();
+        }
+
+        function toggleCustomerField() {
+            const type = document.getElementById('transactionType').value;
+            const customerGroup = document.getElementById('customerFieldGroup');
+            customerGroup.style.display = type === 'sale' ? 'block' : 'none';
+        }
+
+        function updateTransactionPrice() {
+            const productId = parseInt(document.getElementById('transactionProduct').value);
+            if (!productId) return;
+
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                document.getElementById('transactionPrice').value = product.price;
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal() {
+            const quantity = parseInt(document.getElementById('transactionQuantity').value) || 0;
+            const price = parseFloat(document.getElementById('transactionPrice').value) || 0;
+            const total = quantity * price;
+            document.getElementById('transactionTotal').value = total.toFixed(2);
+        }
+
+        function processTransaction() {
+            const type = document.getElementById('transactionType').value;
+            const customerId = parseInt(document.getElementById('transactionCustomer').value);
+            const productId = parseInt(document.getElementById('transactionProduct').value);
+            const quantity = parseInt(document.getElementById('transactionQuantity').value);
+            const priceInput = document.getElementById('transactionPrice').value;
+
+            if (!productId || !quantity || quantity < 1) {
+                showNotification('Lütfen geçerli bir ürün ve miktar girin!', 'error');
+                return;
+            }
+
+            if (type === 'sale' && !customerId) {
+                showNotification('Satış işlemi için müşteri seçmelisiniz!', 'error');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            const unitPrice = priceInput ? parseFloat(priceInput) : product.price;
+            const total = unitPrice * quantity;
+
+            // Stok kontrolü ve güncelleme
+            const stocks = getStocks();
+            const currentStock = stocks[productId] || 0;
+
+            if (type === 'sale') {
+                if (currentStock < quantity) {
+                    showNotification(`Yetersiz stok! Mevcut stok: ${currentStock}`, 'error');
+                    return;
+                }
+                stocks[productId] = currentStock - quantity;
+            } else {
+                stocks[productId] = currentStock + quantity;
+            }
+
+            saveStocks(stocks);
+
+            // Müşteri borç güncelleme (sadece satış için)
+            let customerName = '-';
+            if (type === 'sale' && customerId) {
+                const customers = getCustomers();
+                const customer = customers.find(c => c.id === customerId);
+                if (customer) {
+                    customer.debt += total;
+                    customerName = customer.name;
+                    saveCustomers(customers);
+                }
+            }
+
+            // İşlem geçmişine ekle
+            const transactions = getTransactions();
+            
+            transactions.unshift({
+                id: transactions.length > 0 ? Math.max(...transactions.map(t => t.id)) + 1 : 1,
+                date: new Date().toLocaleString('tr-TR'),
+                type: type === 'sale' ? 'Satış' : 'Alım',
+                customerId: customerId || 0,
+                customerName: customerName,
+                productId: productId,
+                productName: product.name,
+                quantity: quantity,
+                unitPrice: unitPrice,
+                total: total
+            });
+
+            saveTransactions(transactions);
+            loadTransactions();
+            loadCustomers();
+            
+            document.getElementById('transactionQuantity').value = '';
+            document.getElementById('transactionPrice').value = '';
+            document.getElementById('transactionTotal').value = '';
+            showNotification(`${type === 'sale' ? 'Satış' : 'Alım'} işlemi tamamlandı!`);
+        }
+
+        function loadTransactions() {
+            const tbody = document.getElementById('transactionsTableBody');
+            const transactions = getTransactions();
+            tbody.innerHTML = '';
+
+            if (transactions.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" style="text-align: center;">Henüz işlem yapılmamış</td></tr>';
+                return;
+            }
+
+            transactions.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${transaction.date}</td>
+                    <td><span class="badge ${transaction.type === 'Satış' ? 'badge-no-debt' : 'badge-info'}">${transaction.type}</span></td>
+                    <td>${transaction.customerName}</td>
+                    <td>${transaction.productName}</td>
+                    <td>${transaction.quantity}</td>
+                    <td>${transaction.unitPrice.toFixed(2)} TL</td>
+                    <td><strong>${transaction.total.toFixed(2)} TL</strong></td>
+                    <td>
+                        <button onclick="deleteTransaction(${transaction.id})" class="danger btn-sm">🗑️</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function deleteTransaction(id) {
+            if (!confirm('Bu işlemi silmek istediğinize emin misiniz?')) return;
+
+            const transactions = getTransactions();
+            const filtered = transactions.filter(t => t.id !== id);
+            saveTransactions(filtered);
+            loadTransactions();
+            showNotification('İşlem silindi!', 'warning');
+        }
+
+        function searchTransactions() {
+            const searchTerm = document.getElementById('transactionSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#transactionsTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        }
+
+        // Raporlar
+        function loadReports() {
+            const transactions = getTransactions();
+            
+            // Toplam satış ve alım
+            let totalSales = 0;
+            let totalPurchases = 0;
+            
+            transactions.forEach(t => {
+                if (t.type === 'Satış') {
+                    totalSales += t.total;
+                } else {
+                    totalPurchases += t.total;
+                }
+            });
+
+            const profit = totalSales - totalPurchases;
+
+            document.getElementById('reportTotalSales').textContent = totalSales.toFixed(2) + ' TL';
+            document.getElementById('reportTotalPurchases').textContent = totalPurchases.toFixed(2) + ' TL';
+            document.getElementById('reportProfit').textContent = profit.toFixed(2) + ' TL';
+            document.getElementById('reportProfit').style.color = profit >= 0 ? 'white' : 'var(--danger-color)';
+
+            // En çok satılan ürünler
+            const productSales = {};
+            transactions.filter(t => t.type === 'Satış').forEach(t => {
+                if (!productSales[t.productId]) {
+                    productSales[t.productId] = { name: t.productName, quantity: 0, total: 0 };
+                }
+                productSales[t.productId].quantity += t.quantity;
+                productSales[t.productId].total += t.total;
+            });
+
+            const topProducts = Object.values(productSales)
+                .sort((a, b) => b.quantity - a.quantity)
+                .slice(0, 10);
+
+            const topSellingDiv = document.getElementById('topSellingProducts');
+            if (topProducts.length > 0) {
+                topSellingDiv.innerHTML = '<table style="width: 100%; margin-top: 10px;"><thead><tr><th>Ürün</th><th>Satış Adedi</th><th>Toplam Tutar</th></tr></thead><tbody>' +
+                    topProducts.map((p, i) => `
+                        <tr>
+                            <td>${i + 1}. ${p.name}</td>
+                            <td>${p.quantity}</td>
+                            <td><strong>${p.total.toFixed(2)} TL</strong></td>
+                        </tr>
+                    `).join('') + '</tbody></table>';
+            } else {
+                topSellingDiv.innerHTML = '<p>Henüz satış yapılmamış</p>';
+            }
+
+            // Günlük satış raporu
+            const today = new Date().toLocaleDateString('tr-TR');
+            const todaySales = transactions.filter(t => t.type === 'Satış' && t.date.includes(today));
+            const todayTotal = todaySales.reduce((sum, t) => sum + t.total, 0);
+
+            document.getElementById('dailySalesReport').innerHTML = `
+                <p><strong>Bugünkü Satış Sayısı:</strong> ${todaySales.length}</p>
+                <p><strong>Bugünkü Toplam Satış:</strong> <span style="color: var(--success-color); font-weight: 600;">${todayTotal.toFixed(2)} TL</span></p>
+            `;
+
+            // Aylık satış raporu
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
+            const monthlySales = transactions.filter(t => {
+                const tDate = new Date(t.date.split(' ')[0].split('.').reverse().join('-'));
+                return t.type === 'Satış' && tDate.getMonth() === currentMonth && tDate.getFullYear() === currentYear;
+            });
+            const monthlyTotal = monthlySales.reduce((sum, t) => sum + t.total, 0);
+
+            document.getElementById('monthlySalesReport').innerHTML = `
+                <p><strong>Bu Ayki Satış Sayısı:</strong> ${monthlySales.length}</p>
+                <p><strong>Bu Ayki Toplam Satış:</strong> <span style="color: var(--success-color); font-weight: 600;">${monthlyTotal.toFixed(2)} TL</span></p>
+            `;
+
+            // Stok tüketim raporu
+            const stockConsumption = {};
+            transactions.filter(t => t.type === 'Satış').forEach(t => {
+                if (!stockConsumption[t.productId]) {
+                    stockConsumption[t.productId] = { name: t.productName, consumed: 0 };
+                }
+                stockConsumption[t.productId].consumed += t.quantity;
+            });
+
+            const topConsumed = Object.values(stockConsumption)
+                .sort((a, b) => b.consumed - a.consumed)
+                .slice(0, 10);
+
+            const consumptionDiv = document.getElementById('stockConsumptionReport');
+            if (topConsumed.length > 0) {
+                consumptionDiv.innerHTML = '<table style="width: 100%; margin-top: 10px;"><thead><tr><th>Ürün</th><th>Tüketilen Miktar</th></tr></thead><tbody>' +
+                    topConsumed.map((p, i) => `
+                        <tr>
+                            <td>${i + 1}. ${p.name}</td>
+                            <td><strong>${p.consumed}</strong></td>
+                        </tr>
+                    `).join('') + '</tbody></table>';
+            } else {
+                consumptionDiv.innerHTML = '<p>Henüz stok tüketimi yok</p>';
+            }
+        }
+
+        function exportReport(format) {
+            showNotification(`Rapor ${format.toUpperCase()} formatında dışa aktarılıyor...`, 'warning');
+            // Burada gerçek export işlemi yapılabilir
+        }
+
+        function printReport() {
+            window.print();
+        }
+
+        // Sayfa yüklendiğinde
+        window.onload = function() {
+            loadProductsFromStorage();
+            loadDashboard();
+            checkCriticalStock();
+        };
+    </script>
+</body>
+</html>

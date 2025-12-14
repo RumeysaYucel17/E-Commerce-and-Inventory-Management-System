@@ -28,4 +28,4 @@ This project is a simple *E-Commerce and Inventory Management System* developed 
 3. Compile and run the Java files
 
 ## Author
-- Name: Rumeysa Yucel
+- Name: Rümeysa Yücel
